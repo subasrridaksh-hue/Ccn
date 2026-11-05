@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <conio.h>
+
+void main()
+{
+    char msg[100];
+    int i, key;
+
+    clrscr();
+
+    printf("Enter a message: ");
+    gets(msg);
+
+    printf("Enter key: ");
+    scanf("%d", &key);
+
+    /* Encryption */
+    for(i = 0; msg[i] != '\0'; i++)
+        msg[i] = msg[i] + key;
+
+    printf("Encrypted message: %s\n", msg);
+
+    /* Decryption */
+    for(i = 0; msg[i] != '\0'; i++)
+        msg[i] = msg[i] - key;
+
+    printf("Decrypted message: %s", msg);
+
+    getch();
+}
