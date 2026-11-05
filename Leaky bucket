@@ -1,0 +1,23 @@
+import random
+import matplotlib.pyplot as plt
+
+cap = int(input())
+leak = int(input())
+T = int(input())
+
+c = d = 0
+t = []; b = []
+
+for i in range(T):
+    c += random.randint(0,5)
+    if c > cap:
+        d += c - cap
+        c = cap
+    c -= min(leak, c)
+    t.append(i); b.append(c)
+    print(i, c, d)
+
+plt.plot(t, b)                 # bucket content
+plt.plot(t, [cap]*T)           # capacity line
+plt.title("Leaky Bucket")
+plt.show()
